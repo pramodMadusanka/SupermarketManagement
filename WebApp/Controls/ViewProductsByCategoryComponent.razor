@@ -1,0 +1,114 @@
+@inject UseCases.UseCasesInterfaces.IGetProductsByCategoryIdUseCase GetProductsByCategoryIdUseCase
+@inject UseCases.UseCasesInterfaces.IViewCategoriesUseCase ViewCategoriesUseCase
+
+<div>
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" class="form-control" @bind="SelectedCategoryId">
+                    <option selected></option>
+                    @foreach (var category in _categories)
+                    {
+                        <option value="@category.CategoryId">@category.Name</option>
+                    }
+                </select>
+            </div>
+            <br/>
+            @if(_products != null)
+            {
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in _products)
+                        {
+                            <tr @onclick="@(()=>OnProductClick(product))" style="cursor: pointer;">
+                                <td>@product.Name</td>
+                                <td>@product.Quantity</td>
+                                <td>@product.Price</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+        <div class="col-8">
+            @if(_selectedProduct != null)
+            {
+                <EditForm Model="_selectedProduct" OnValidSubmit="OnValidSubmit" class="form-inline">
+                    <label for="name">Name</label>
+                    <InputText disabled id="name" @bind-Value="_selectedProduct.Name" class="form-control"></InputText>
+                    <label for="quantity">Quantity</label>
+                    <InputNumber id="quantity" @bind-Value="Qty" class="form-control"></InputNumber>
+                    <label for="price">Price</label>
+                    <InputNumber disabled id="price" @bind-Value="_price" class="form-control"></InputNumber>
+                </EditForm>
+            }
+        </div>
+    </div>
+</div>
+
+@code
+{
+    private IEnumerable<Product> _products;
+    private IEnumerable<Category> _categories;
+    private Product _selectedProduct;
+    private decimal _price;
+    private int _qty;
+    private int Qty
+    {
+        get{ return _qty; }
+        set
+        {
+            _qty = value;
+            _selectedProduct.Quantity = _qty;
+            _price = _qty*_selectedProduct.Price;
+        }
+    }
+    private int selectedCategoryId;
+    private int SelectedCategoryId
+    {
+        get{return selectedCategoryId;}
+        set
+        {
+            selectedCategoryId = value;
+            _products = GetProductsByCategoryIdUseCase.Execute(value);
+        }
+    }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _categories = ViewCategoriesUseCase.Execute();
+    }
+    private void OnProductClick(Product product)
+    {
+        _selectedProduct = new Product()
+        {
+            CategoryId = product.CategoryId,
+            ProductId = product.ProductId,
+            Name = product.Name,
+            Quantity = 0,
+            Price = product.Price
+        };
+        Qty = 0;
+        _price = 0;
+    }
+    private void OnValidSubmit()
+    {
+
+    }
+    private void OnQuantityChange()
+    {
+        Console.WriteLine($"Price: {_selectedProduct.Price}\tQty: {_selectedProduct.Quantity}");
+        _selectedProduct.Price = _selectedProduct.Price*_selectedProduct.Quantity;
+    }
+    protected override void OnParametersSet()
+    {
+        
+        base.OnParametersSet();
+    }
+}

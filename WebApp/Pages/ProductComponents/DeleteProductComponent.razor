@@ -1,0 +1,9 @@
+@page "/deleteproduct/{id:int}"
+
+<ProductFormComponent Type="delete" ProductId="@id"></ProductFormComponent>
+
+@code
+{
+    [Parameter]
+    public int id { get; set; }
+}

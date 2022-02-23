@@ -1,0 +1,68 @@
+@page "/products"
+@inject UseCases.UseCasesInterfaces.IViewProductsUseCase ViewProductsUseCase
+@inject NavigationManager NavigationManager
+
+<div class="container">
+    <div class="row pb-2">
+        <div class="col-6">
+            <h3 class="text-primary">View Products</h3>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-center">
+            <button class="btn btn-primary" type="button" @onclick="OnAddProduct">Add Product</button>
+        </div>
+    </div>
+    @if(products != null)
+    {
+        <table class="table table-striped table-bordered" style="width: 100%;">
+            <thead>
+                <th>Category ID</th>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th></th>
+            </thead>
+            <tbody>
+                @foreach (var product in products)
+                {
+                    <tr>
+                        <td>@product.CategoryId</td>
+                        <td>@product.ProductId</td>
+                        <td>@product.Name</td>
+                        <td>@product.Quantity</td>
+                        <td>Rs. @product.Price</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary" @onclick="()=>OnEdit(product)">Edit</button>
+                                <button type="button" class="btn btn-danger" @onclick="()=>OnDelete(product)">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+
+@code
+{
+    IEnumerable<Product> products;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        products = ViewProductsUseCase.Execute();
+    }
+    private void OnEdit(Product item)
+    {
+        NavigationManager.NavigateTo($"/editproduct/{item.ProductId}");
+    }
+    private void OnAddProduct()
+    {
+        NavigationManager.NavigateTo("/addproduct");
+    }
+    private void OnDelete(Product item)
+    {
+        NavigationManager.NavigateTo($"/deleteproduct/{item.ProductId}");
+    }
+}

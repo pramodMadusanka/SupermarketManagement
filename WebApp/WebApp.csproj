@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/UseCases.csproj"/>
+    <ProjectReference Include="/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/CoreBusiness.csproj"/>
+    <ProjectReference Include="/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/Plugins.DataStore.InMemory.csproj"/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.1"/>
+  </ItemGroup>
+</Project>

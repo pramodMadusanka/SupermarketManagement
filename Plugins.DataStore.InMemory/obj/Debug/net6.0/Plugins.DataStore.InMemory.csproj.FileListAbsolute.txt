@@ -1,0 +1,17 @@
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/bin/Debug/net6.0/Plugins.DataStore.InMemory.deps.json
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/bin/Debug/net6.0/Plugins.DataStore.InMemory.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/bin/Debug/net6.0/ref/Plugins.DataStore.InMemory.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/bin/Debug/net6.0/Plugins.DataStore.InMemory.pdb
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/bin/Debug/net6.0/CoreBusiness.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/bin/Debug/net6.0/UseCases.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/bin/Debug/net6.0/UseCases.pdb
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/bin/Debug/net6.0/CoreBusiness.pdb
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/obj/Debug/net6.0/Plugins.DataStore.InMemory.csproj.AssemblyReference.cache
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/obj/Debug/net6.0/Plugins.DataStore.InMemory.GeneratedMSBuildEditorConfig.editorconfig
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/obj/Debug/net6.0/Plugins.DataStore.InMemory.AssemblyInfoInputs.cache
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/obj/Debug/net6.0/Plugins.DataStore.InMemory.AssemblyInfo.cs
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/obj/Debug/net6.0/Plugins.DataStore.InMemory.csproj.CoreCompileInputs.cache
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/obj/Debug/net6.0/Plugins.DataStore.InMemory.csproj.CopyComplete
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/obj/Debug/net6.0/Plugins.DataStore.InMemory.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/obj/Debug/net6.0/ref/Plugins.DataStore.InMemory.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/Plugins.DataStore.InMemory/obj/Debug/net6.0/Plugins.DataStore.InMemory.pdb

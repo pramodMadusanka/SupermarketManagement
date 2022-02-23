@@ -1,0 +1,15 @@
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/bin/Debug/net6.0/UseCases.deps.json
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/bin/Debug/net6.0/UseCases.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/bin/Debug/net6.0/ref/UseCases.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/bin/Debug/net6.0/UseCases.pdb
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/bin/Debug/net6.0/CoreBusiness.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/bin/Debug/net6.0/CoreBusiness.pdb
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/obj/Debug/net6.0/UseCases.csproj.AssemblyReference.cache
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/obj/Debug/net6.0/UseCases.GeneratedMSBuildEditorConfig.editorconfig
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/obj/Debug/net6.0/UseCases.AssemblyInfoInputs.cache
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/obj/Debug/net6.0/UseCases.AssemblyInfo.cs
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/obj/Debug/net6.0/UseCases.csproj.CoreCompileInputs.cache
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/obj/Debug/net6.0/UseCases.csproj.CopyComplete
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/obj/Debug/net6.0/UseCases.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/obj/Debug/net6.0/ref/UseCases.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/UseCases/obj/Debug/net6.0/UseCases.pdb

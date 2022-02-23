@@ -1,0 +1,106 @@
+@using UseCases.UseCasesInterfaces
+
+@inject UseCases.UseCasesInterfaces.IViewCategoriesUseCase ViewCategoriesUseCase
+@inject UseCases.UseCasesInterfaces.ICreateProductUseCase CreateProductUseCase
+@inject UseCases.UseCasesInterfaces.IEditProductUseCase EditCategoryUseCase
+@inject UseCases.UseCasesInterfaces.IDeleteProductUseCase DeleteProductUseCase
+@inject UseCases.UseCasesInterfaces.IGetProductByIdUseCase GetProductByIdUseCase
+@inject NavigationManager NavigationManager
+
+<div class="container">
+    <h3 class="text-primary">@title</h3>
+    <EditForm Model="_product" OnValidSubmit="OnValidSubmit" class="form-inline">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <ValidationSummary></ValidationSummary>
+        <div class="form-group pb-3">
+            <label for="categoryid">Category</label>
+            <InputSelect disabled="@isDisabled" id=categoryid @bind-Value="_product.CategoryId" class="form-control">
+                @foreach (var category in _categories)
+                {
+                    <option value="@category.CategoryId" selected="@((@category.CategoryId==@_product.CategoryId)?true:false)">@category.CategoryId - @category.Name</option>
+                }
+            </InputSelect>
+            <label for="name" class="pt-3">Product Name</label>
+            <InputText disabled="@isDisabled" id="name" @bind-Value="_product.Name" class="form-control"></InputText>
+            <label for="quantity" class="pt-3">Quantity</label>
+            <InputNumber disabled="@isDisabled" id="quantity" @bind-Value="_product.Quantity" class="form-control"></InputNumber>
+            <label for="price" class="pt-3">Price</label>
+            <InputNumber disabled="@isDisabled" id="price" @bind-Value="_product.Price" @bind-Value:format="F2" class="form-control"></InputNumber>
+        </div>
+        <div class="d-flex flex-row-reverse">
+            @if(Type=="delete") 
+            {
+                <button type="button" class="btn btn-secondary m-1" @onclick="OnCancel">Cancel</button>
+                <button type="submit" class="btn btn-danger m-1">Delete</button>
+            }
+            else
+            {
+                <button type="submit" class="btn btn-primary m-1">Save</button>
+                <button type="button" class="btn btn-secondary m-1" @onclick="OnCancel">Cancel</button>
+            }
+        </div>
+    </EditForm>
+</div>
+
+@code
+{
+    [Parameter]
+    public string Type { get; set; } = "create"; //create, edit, delete
+    [Parameter]
+    public int? ProductId { get; set; }
+    private bool isDisabled = false;
+    private string title="";
+    @* [Parameter]
+    public ICreateProductUseCase? CreateProductUseCase { get; set; } *@
+    //public IEditProductUseCase MyProperty { get; set; }
+    private Product _product;
+    private IEnumerable<Category> _categories;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        if(Type=="create")
+        {
+            _product = new Product();
+            title = "Add Product";
+        }
+        else if(Type=="edit")
+        {
+            _product = GetProductByIdUseCase.Execute((int)ProductId);
+            title = "Edit Product";
+        }
+        else if(Type=="delete")
+        {
+            _product = GetProductByIdUseCase.Execute((int)ProductId);
+            isDisabled = true;
+            title = "Delete Product";
+        }
+        else throw new NotSupportedException($"{Type} type is not supported");
+
+        _categories = ViewCategoriesUseCase.Execute();
+    }
+    private void OnValidSubmit()
+    {
+        if(Type=="create") OnCreate();
+        else if(Type=="edit") OnEdit(_product);
+        else OnDelete(_product);
+
+        NavigationManager.NavigateTo("/products");
+    }
+    private void OnCreate()
+    {
+        CreateProductUseCase.Execute(_product);
+    }
+    private void OnEdit(Product item)
+    {
+        EditCategoryUseCase.Execute(item);
+    }
+    private void OnDelete(Product item)
+    {
+        DeleteProductUseCase.Execute(item);
+    }
+    private void OnCancel()
+    {
+        NavigationManager.NavigateTo("/products");
+    }
+}

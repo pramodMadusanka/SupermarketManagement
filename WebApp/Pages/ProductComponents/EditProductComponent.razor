@@ -1,0 +1,9 @@
+@page "/editproduct/{id:int}"
+
+<ProductFormComponent Type="edit" ProductId="@id"></ProductFormComponent>
+
+@code
+{
+    [Parameter]
+    public int id { get; set; }
+}

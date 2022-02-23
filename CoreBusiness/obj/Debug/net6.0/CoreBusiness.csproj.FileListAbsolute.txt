@@ -1,0 +1,12 @@
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/bin/Debug/net6.0/CoreBusiness.deps.json
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/bin/Debug/net6.0/CoreBusiness.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/bin/Debug/net6.0/ref/CoreBusiness.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/bin/Debug/net6.0/CoreBusiness.pdb
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/obj/Debug/net6.0/CoreBusiness.csproj.AssemblyReference.cache
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/obj/Debug/net6.0/CoreBusiness.GeneratedMSBuildEditorConfig.editorconfig
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/obj/Debug/net6.0/CoreBusiness.AssemblyInfoInputs.cache
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/obj/Debug/net6.0/CoreBusiness.AssemblyInfo.cs
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/obj/Debug/net6.0/CoreBusiness.csproj.CoreCompileInputs.cache
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/obj/Debug/net6.0/CoreBusiness.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/obj/Debug/net6.0/ref/CoreBusiness.dll
+/media/pramod/NewVolume/Projects/SupermarketManagement/CoreBusiness/obj/Debug/net6.0/CoreBusiness.pdb

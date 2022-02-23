@@ -1,0 +1,38 @@
+@page "/deletecategory/{id:int}"
+@inject UseCases.UseCasesInterfaces.IGetCategoryByIdUseCase GetCategoryByIdUseCase
+@inject UseCases.UseCasesInterfaces.IDeleteCategoryUseCase DeleteCategoryUseCase
+@inject NavigationManager NavigationManager
+
+<h3 class="text-primary">Delete Category</h3>
+<EditForm Model="_category" OnValidSubmit="OnValidSubmit" class="form-inline">
+    <div class="form-group pb-3">
+        <label for="name">Name</label>
+        <InputText disabled id="name" class="form-control" @bind-Value="_category.Name"></InputText>
+        <label for="description" class="pt-3">Description</label>
+        <InputText disabled id="description" class="form-control" @bind-Value="_category.Description"></InputText>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <button type="button" class="btn btn-secondary" @onclick="OnClickCancel">Cancel</button>
+</EditForm>
+
+@code
+{
+    [Parameter]
+    public int id { get; set; }
+    private Category _category;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _category = GetCategoryByIdUseCase.Execute(id);
+        if(_category == null) NavigationManager.NavigateTo("/deletecategory");
+    }
+    private void OnValidSubmit()
+    {
+        DeleteCategoryUseCase.Execute(_category);
+        NavigationManager.NavigateTo("/categories");
+    }
+    private void OnClickCancel()
+    {
+        NavigationManager.NavigateTo("/categories");
+    }
+}

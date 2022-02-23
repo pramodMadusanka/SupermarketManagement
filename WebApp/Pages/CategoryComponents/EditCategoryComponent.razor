@@ -1,0 +1,42 @@
+@page "/editcategory/{id:int}"
+@inject UseCases.UseCasesInterfaces.IEditCategoryUseCase EditCategoryUseCase
+@inject UseCases.UseCasesInterfaces.IGetCategoryByIdUseCase GetCategoryByIdUseCase
+@inject NavigationManager NavigationManager
+
+<h3 class="text-primary">Edit Category</h3>
+<EditForm Model="_category" class="form-inline" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    @* <ValidationSummary></ValidationSummary> *@
+    <div class="form-group pb-3">
+        <label for="name">Name</label>
+        <InputText id="name" @bind-Value="_category.Name" class="form-control"></InputText>
+        <ValidationMessage For="@(()=>_category.Name)"/>
+        <label for="description" class="pt-3">Description</label>
+        <InputText id="description" @bind-Value="_category.Description" class="form-control"></InputText>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-secondary" @onclick="OnCancel">Cancel</button>
+</EditForm>
+
+@code
+{
+    [Parameter]
+    public int id { get; set; }
+    private Category _category;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        _category = GetCategoryByIdUseCase.Execute(id);
+        if(_category == null) NavigationManager.NavigateTo("/editcategory");
+    }
+    private void OnValidSubmit()
+    {
+        EditCategoryUseCase.Execute(_category);
+        NavigationManager.NavigateTo("/categories");
+
+    }
+    private void OnCancel()
+    {
+        NavigationManager.NavigateTo("/categories");
+    }
+}
